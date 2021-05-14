@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.heronet.weatherify.R
 import com.heronet.weatherify.api.Forecast
 import com.heronet.weatherify.databinding.WeatherItemBinding
+import com.heronet.weatherify.util.UtilFunctions
 
 class WeatherForecastAdapter: ListAdapter<Forecast.Daily, WeatherForecastAdapter.DailyViewHolder>(DiffUtilCb()) {
      class DailyViewHolder(private val binding: WeatherItemBinding): RecyclerView.ViewHolder(binding.root) {
@@ -20,27 +21,7 @@ class WeatherForecastAdapter: ListAdapter<Forecast.Daily, WeatherForecastAdapter
                 tvWeatherType.text = forecastDaily.weather[0].main
                 tvWeatherDescription.text = forecastDaily.weather[0].description
 
-                when(forecastDaily.weather[0].icon) {
-                    "01d" -> ivWeather.setImageResource(R.drawable.ic_01d)
-                    "02d" -> ivWeather.setImageResource(R.drawable.ic_02d)
-                    "03d" -> ivWeather.setImageResource(R.drawable.ic_03d)
-                    "04d" -> ivWeather.setImageResource(R.drawable.ic_03d)
-                    "09d" -> ivWeather.setImageResource(R.drawable.ic_09d)
-                    "10d" -> ivWeather.setImageResource(R.drawable.ic_10d)
-                    "11d" -> ivWeather.setImageResource(R.drawable.ic_11d)
-                    "13d" -> ivWeather.setImageResource(R.drawable.ic_13d)
-                    "50d" -> ivWeather.setImageResource(R.drawable.ic_50d)
-
-                    "01n" -> ivWeather.setImageResource(R.drawable.ic_01d)
-                    "02n" -> ivWeather.setImageResource(R.drawable.ic_02d)
-                    "03n" -> ivWeather.setImageResource(R.drawable.ic_03d)
-                    "04n" -> ivWeather.setImageResource(R.drawable.ic_03d)
-                    "09n" -> ivWeather.setImageResource(R.drawable.ic_09d)
-                    "10n" -> ivWeather.setImageResource(R.drawable.ic_10d)
-                    "11n" -> ivWeather.setImageResource(R.drawable.ic_11d)
-                    "13n" -> ivWeather.setImageResource(R.drawable.ic_13d)
-                    "50n" -> ivWeather.setImageResource(R.drawable.ic_50d)
-                }
+                UtilFunctions.imageSelector(forecastDaily.weather[0].icon, ivWeather)
             }
         }
     }

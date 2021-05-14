@@ -75,4 +75,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
+    // GMS
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    // Easy Permissions
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
 }

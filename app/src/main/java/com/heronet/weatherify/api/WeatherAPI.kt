@@ -16,6 +16,14 @@ interface WeatherAPI {
         @Query("APPID") appId: String = APP_ID
     ): Response<Weather>
 
+    @GET("weather") // Current Weather using COord
+    suspend fun getCurrentInfo(
+        @Query("lat") lat: Number,
+        @Query("lon") lon: Number,
+        @Query("units") unit: String = "metric",
+        @Query("APPID") appId: String = APP_ID
+    ): Response<Weather>
+
     @GET("onecall")
     suspend fun getForecast(
         @Query("lat") lat: Number,

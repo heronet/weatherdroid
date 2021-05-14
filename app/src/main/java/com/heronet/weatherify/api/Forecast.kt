@@ -7,6 +7,7 @@ data class Forecast(
     val current: Current?,
     val daily: List<Daily>?,
     val hourly: List<Hourly>?,
+    var cityName: String?,
     val lat: Double,
     val lon: Double,
     val minutely: List<Minutely>?,
